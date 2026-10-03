@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Speed Dash — Plataforma Veloz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="page">
+  <header id="topbar">
+    <div class="logo">⚡ SPEED <span>DASH</span></div>
+    <div class="top-actions">
+      <button id="btn-sound" class="icon-btn" title="Ativar/Desativar som">🔊</button>
+      <button id="btn-pause" class="icon-btn" title="Pausar (P)">⏸</button>
+      <button id="btn-restart" class="icon-btn" title="Reiniciar">↻</button>
+    </div>
+  </header>
+
+  <div id="game-wrap">
+    <canvas id="game" width="960" height="540"></canvas>
+
+    <div id="hud">
+      <div class="hud-item" id="hud-lives">❤️ ❤️ ❤️</div>
+      <div class="hud-item">💎 <span id="hud-crystals">0</span></div>
+      <div class="hud-item">🚩 <span id="hud-level">1/3</span></div>
+      <div class="hud-item">⏱️ <span id="hud-time">0:00.0</span></div>
+      <div class="hud-item speed"><span class="bolt">⚡</span><div id="speed-bar"><div id="speed-fill"></div></div></div>
+    </div>
+
+    <div id="boost-wrap"><div id="boost-fill"></div><span>ESTAMINA ⚡</span></div>
+
+    <!-- Telas -->
+    <div id="screen-start" class="screen">
+      <div class="panel">
+        <h1>⚡ SPEED DASH</h1>
+        <p class="subtitle">Corra. Salte. Voe pela fase.</p>
+        <div class="controls-info">
+          <div><kbd>←</kbd><kbd>→</kbd> / <kbd>A</kbd><kbd>D</kbd> mover</div>
+          <div><kbd>Espaço</kbd> pular &nbsp; <kbd>Shift</kbd> corrida (gasta estamina) &nbsp; <kbd>↓</kbd>+<kbd>Espaço</kbd> descer</div>
+          <div><kbd>P</kbd> pausar</div>
+        </div>
+        <p class="tip">💎 Colete cristais • 🐾 Pule nos inimigos • 🚩 Ative checkpoints • 🏁 Chegue ao fim</p>
+        <div class="legend">
+          <div><i class="sw ground"></i>chão sólido</div>
+          <div><i class="sw plank"></i>atravessável ▲</div>
+          <div><i class="sw mover"></i>móvel ⇄</div>
+          <div><i class="sw spring"></i>mola</div>
+          <div><i class="sw spike"></i>espinho</div>
+        </div>
+        <button id="btn-start" class="big-btn">▶ JOGAR</button>
+        <div class="level-select">
+          <span>ou escolha a fase:</span>
+          <div class="lvl-row">
+            <button class="lvl-btn" id="btn-l1">1<br><small>Colinas</small></button>
+            <button class="lvl-btn" id="btn-l2">2<br><small>Pôr do Sol</small></button>
+            <button class="lvl-btn" id="btn-l3">3<br><small>Caverna</small></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="screen-pause" class="screen hidden">
+      <div class="panel">
+        <h2>⏸ PAUSADO</h2>
+        <p>Respire. A velocidade espera por você.</p>
+        <button id="btn-resume" class="big-btn">Continuar</button>
+        <button id="btn-restart2" class="ghost-btn">Reiniciar fase</button>
+      </div>
+    </div>
+
+    <div id="screen-gameover" class="screen hidden">
+      <div class="panel">
+        <h2>💥 GAME OVER</h2>
+        <p id="gameover-stats">Você coletou 0 cristais.</p>
+        <button id="btn-retry" class="big-btn">Jogar Novamente</button>
+      </div>
+    </div>
+
+    <div id="screen-win" class="screen hidden">
+      <div class="panel">
+        <h2>🏁 FASE COMPLETA!</h2>
+        <div id="win-stats" class="win-stats"></div>
+        <div id="win-record" class="record"></div>
+        <button id="btn-next" class="big-btn">Próxima Fase →</button>
+        <button id="btn-replay" class="ghost-btn">Jogar novamente</button>
+      </div>
+    </div>
+
+    <div id="toast" class="hidden"></div>
+
+    <!-- Controles touch -->
+    <div id="touch">
+      <div class="touch-left">
+        <button id="t-left" class="touch-btn">◀</button>
+        <button id="t-right" class="touch-btn">▶</button>
+      </div>
+      <div class="touch-right">
+        <button id="t-dash" class="touch-btn small">⚡</button>
+        <button id="t-jump" class="touch-btn">▲</button>
+      </div>
+    </div>
+  </div>
+
+  <footer id="hint">Dica: a estamina gasta ao correr com <b>Shift</b> e recarrega ao soltar. Plataformas finas são atravessáveis — pule por baixo e pise por cima; <b>↓</b>+<b>pulo</b> desce.</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
